@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class SimpleCalculator{
 
-    public static int calculation(int firstNumber, String operator, int secondNumber){
+    public static int calculate(int firstNumber, String operator, int secondNumber){
 
         int result = 0;
         switch (operator){
@@ -16,7 +16,7 @@ public class SimpleCalculator{
                 break;
             case "/":
                 if(secondNumber == 0){
-                    System.out.println("invalid, please enter a number above 0");
+                    System.out.println("Invalid, please enter a number other than 0");
                     return 0;
                 }else{
                     result = firstNumber / secondNumber;
@@ -28,12 +28,10 @@ public class SimpleCalculator{
         return result;
     }
 
-
-
     public static void main(String[] args) {
         Scanner user = new Scanner(System.in);
 
-        int firstNumber = -1;
+        int firstNumber = 1;
 
         while(firstNumber != 0){
             System.out.println("please enter the first number (enter 0 to stop)");
@@ -51,7 +49,7 @@ public class SimpleCalculator{
             System.out.println("please enter a second number");
             int secondNumber = user.nextInt();
 
-            System.out.printf("your result is %d \n", calculation(firstNumber, operator, secondNumber));
+            System.out.printf("your result is %d \n", calculate(firstNumber, operator, secondNumber));
         }
     }
 }

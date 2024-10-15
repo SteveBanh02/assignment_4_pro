@@ -15,16 +15,16 @@ public class Divisor{
     public static void main(String[] args) {
 
         int numberWithMostDivisor = 0;
-        int largestNumDivisor = 0;
+        int largestNumberOfDivisor = 0;
         
         for(int i = 1; i <= 10000; i ++){
 
             int divisorCounted = countDivisor(i);
-            if (largestNumDivisor < divisorCounted){
-                largestNumDivisor = divisorCounted;
+            if (largestNumberOfDivisor < divisorCounted){
+                largestNumberOfDivisor = divisorCounted;
                 numberWithMostDivisor = i; 
             }
         }
-        System.out.printf("The number %d has %d divisors",numberWithMostDivisor, largestNumDivisor);
+        System.out.printf("The number that has the most divisors, at %d, is %d", largestNumberOfDivisor, numberWithMostDivisor);
     }
 }   

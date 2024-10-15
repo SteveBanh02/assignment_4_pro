@@ -20,7 +20,6 @@ public class SnakeEyes{
     public static void main(String[] args) {
 
         int rolls = countRollsUntilSnakeEyes();
-        System.out.println("Hello");
         System.out.printf("there were %d tries before you got snake eyes", rolls);
     }
 }

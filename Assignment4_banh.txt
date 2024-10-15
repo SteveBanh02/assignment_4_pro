@@ -1,8 +1,150 @@
 Question 1
 
+public class SnakeEyes{
+
+    public static int countRollsUntilSnakeEyes(){
+
+        boolean snakeEyes = false;
+        int countRoll = 0;
+
+        while (!snakeEyes){
+            int numberOne = (int)(Math.random()*6 + 1);
+            int numberTwo = (int)(Math.random()*6 + 1);
+            countRoll++;
+
+            if (numberOne == 1 && numberTwo == 1){
+                snakeEyes = true;
+             }
+        }
+        return countRoll;
+    }
+
+    public static void main(String[] args) {
+
+        int rolls = countRollsUntilSnakeEyes();
+        System.out.printf("there were %d tries before you got snake eyes", rolls);
+    }
+}
+
 Question 2
+
+public class Divisor{
+
+    public static int countDivisor(int i){
+
+        int countDivisor = 0;
+        for(int j = 1; j <= i; j++){
+            
+            if(i % j == 0){
+                countDivisor++;
+            }
+        }
+        return countDivisor;
+    }
+
+    public static void main(String[] args) {
+
+        int numberWithMostDivisor = 0;
+        int largestNumberOfDivisor = 0;
+        
+        for(int i = 1; i <= 10000; i ++){
+
+            int divisorCounted = countDivisor(i);
+            if (largestNumberOfDivisor < divisorCounted){
+                largestNumberOfDivisor = divisorCounted;
+                numberWithMostDivisor = i; 
+            }
+        }
+        System.out.printf("The number that has the most divisors, at %d, is %d", largestNumberOfDivisor, numberWithMostDivisor);
+    }
+}   
 
 Question 3
 
+import java.util.Scanner;
+public class SimpleCalculator{
+
+    public static int calculate(int firstNumber, String operator, int secondNumber){
+
+        int result = 0;
+        switch (operator){
+            case "+":
+                result = firstNumber + secondNumber;
+                break;
+            case "-":
+                result = firstNumber - secondNumber;
+                break;
+            case "*":
+                result = firstNumber * secondNumber;
+                break;
+            case "/":
+                if(secondNumber == 0){
+                    System.out.println("Invalid, please enter a number other than 0");
+                    return 0;
+                }else{
+                    result = firstNumber / secondNumber;
+                }
+                break;
+            default:
+                System.out.println("Invalid operation. Please enter \"+\", \"-\", \"*\" or \"/\"");
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner user = new Scanner(System.in);
+
+        int firstNumber = 1;
+
+        while(firstNumber != 0){
+            System.out.println("please enter the first number (enter 0 to stop)");
+            firstNumber = user.nextInt();
+
+            if (firstNumber == 0){
+                System.out.println("thank you for using our calculator");
+                break;
+            }
+            
+            System.out.println("please enter an operation");
+            user.nextLine();
+            String operator = user.nextLine();
+
+            System.out.println("please enter a second number");
+            int secondNumber = user.nextInt();
+
+            System.out.printf("your result is %d \n", calculate(firstNumber, operator, secondNumber));
+        }
+    }
+}
+
 Question 4
+
+import java.util.Scanner;
+import java.util.regex.*;
+public class BreakSentenceToWords{
+
+    public static String [] breakSentence(String sentence){
+
+        sentence = sentence.replaceAll("[\\p{Punct}&&[^']]", "");
+        String regex = "[\\s+]";
+        String [] arrayWords = sentence.split(regex);
+
+        for(int i = 0; i < arrayWords.length; i++){
+            System.out.println(arrayWords[i]);
+        }
+        return arrayWords;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner user = new Scanner(System.in);
+
+        System.out.println("Please enter a sentence.");
+        String sentence = user.nextLine();
+
+        System.out.println("The words in your sentence are: ");
+        breakSentence(sentence);
+        
+    }
+}
 
